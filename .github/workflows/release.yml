@@ -13,12 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set Deployment
-        uses: cube-root/kubectl@1.0.0
+        uses: cube-root/kubectl@1.0.1
         env:
           KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_BASE64 }}
-        # with:
-        #   args: kubectl set image deployment/sample-express getting-started=abhijithababhijith/getting-started-expressjs:latest
-      - name: Deployment
-        run: |
-          kubectl set image deployment/sample-express getting-started=abhijithababhijith/getting-started-expressjs:latest
+        with:
+          command: kubectl set image deployment/sample-express getting-started=abhijithababhijith/getting-started-expressjs:latest
        
