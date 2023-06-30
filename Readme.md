@@ -19,7 +19,7 @@ rules:
     verbs: ["get", "update", "list"]
   - apiGroups: ["apps"]
     resources: ["deployments"]
-    verbs: ["get", "update", "list","create"]
+    verbs: ["get", "update", "list", "create"]
 ```
 
 ## 2. Bind the cluster role
@@ -96,7 +96,6 @@ users:
 | cluster-name |                 cluster name                  |                any name                |
 |  user-name   |                   User name                   |                any name                |
 | secret-token | secret created from above yaml file on step 4 | kubectl describe secret {secret_name}  |
-
 
 ## 6. use the command
 
