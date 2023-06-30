@@ -1,0 +1,19 @@
+name: Build And Deploy k8s
+
+on:
+  push:
+    branches:
+      - "main"
+env:
+    KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install kubectl
+        run: |
+           curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+           chmod +x ./kubectl
+           kubectl version --output=yaml
