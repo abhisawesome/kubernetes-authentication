@@ -13,9 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Deployment
-        uses: ghostzero/kubectl@v1
+        uses: cube-root/kubectl@1.0.0
         env:
-          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_BASE64 }}
+          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_BASE64 }}
         with:
           args: set image deployment/sample-express getting-started=abhijithababhijith/getting-started-expressjs:latest
       # - name: Install kubectl
