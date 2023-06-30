@@ -13,10 +13,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set Deployment
-        uses: cube-root/kubectl@1.0.1
+        uses: cube-root/kubectl@v1
         env:
           KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_BASE64 }}
         with:
           # command: kubectl set image deployment/sample-express getting-started=abhijithababhijith/getting-started-expressjs:latest
-          command: kubectl get pods
+          command: kubectl set image deployment/sample-express getting-started=abhijithababhijith/getting-started-expressjs:latest && kubectl get pods
        
