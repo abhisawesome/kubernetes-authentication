@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: githubactions
+  namespace: kube-system
+secrets:
+  - name: github-action-secret
