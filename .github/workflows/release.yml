@@ -17,5 +17,6 @@ jobs:
         env:
           KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_BASE64 }}
         with:
-          command: kubectl set image deployment/sample-express getting-started=abhijithababhijith/getting-started-expressjs:latest
+          # command: kubectl set image deployment/sample-express getting-started=abhijithababhijith/getting-started-expressjs:latest
+          command: kubectl get pods
        
