@@ -5,7 +5,7 @@ on:
     branches:
       - "main"
 env:
-    KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+    KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_BASE64 }}
 
 jobs:
   build-and-deploy:
@@ -15,7 +15,7 @@ jobs:
       - name: Logs
         uses: ghostzero/kubectl@v1
         env:
-          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG }}
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_BASE64 }}
         with:
           args: get pods
       # - name: Install kubectl
