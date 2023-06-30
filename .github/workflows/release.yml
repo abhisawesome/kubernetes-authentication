@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Logs
+      - name: Deployment
         uses: ghostzero/kubectl@v1
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_BASE64 }}
