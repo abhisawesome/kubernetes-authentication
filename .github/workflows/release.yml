@@ -11,11 +11,13 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: steebchen/kubectl@v2.0.0
+      - uses: actions/checkout@v2
+      - name: Logs
+        uses: ghostzero/kubectl@v1
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG }}
         with:
-          config: ${{ secrets.KUBE_CONFIG }}
-          command: get pods
-      # - uses: actions/checkout@v2
+          args: get pods
       # - name: Install kubectl
       #   run: |
       #      curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
