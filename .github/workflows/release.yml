@@ -17,7 +17,7 @@ jobs:
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_BASE64 }}
         with:
-          args: get pods
+          args: set image deployment/sample-express getting-started=abhijithababhijith/getting-started-expressjs:latest
       # - name: Install kubectl
       #   run: |
       #      curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
